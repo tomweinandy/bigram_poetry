@@ -1,3 +1,3 @@
 # Bigram Poetry Bot
 
-Here is the [unpublished] blog article explaining the project: https://dev.to/tomweinandy/building-a-twitter-bot-to-write-bigram-poems-50cm-temp-slug-3889234?preview=a41bdd1665ba0fd311efea68c7b250abfcab72f66ef49ef92ba8799665b068faa693cfe197731168a019cfdaba9910c7f6f5290614f0e4b1633ac2f4
+[Here](https://dev.to/tomweinandy/building-a-twitter-bot-to-write-bigram-poems-50cm-temp-slug-3889234?preview=a41bdd1665ba0fd311efea68c7b250abfcab72f66ef49ef92ba8799665b068faa693cfe197731168a019cfdaba9910c7f6f5290614f0e4b1633ac2f4) is the [unpublished] blog article explaining the project.
