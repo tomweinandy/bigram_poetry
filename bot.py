@@ -6,7 +6,7 @@ from twython import TwythonStreamer
 from twython import Twython  
 
 def bigram_poem(phrase):                                                  # define new function bigram_poem   
-    rejects = '¿.?!,[]|"“();…{}«•*+$'                                      # define punctuation to be removed
+    rejects = '¿.?!,[]|"“();…{}«•*+$@'                                    # define punctuation to be removed
     phrase_reject = phrase.translate({ord(c): None for c in rejects})     # remove defined punctuation
     phrase_split = phrase_reject.split(' ')                               # split phrase by whitespace
     phrase_clear = list(filter(None, phrase_split))                       # strip any extra whitespace
@@ -38,10 +38,10 @@ class MyStreamer(TwythonStreamer):                                        # crea
             tweet = tweet.replace('\n',' ').replace('VIDEO','')           # remove edge cases with bad formatting
             tweet = tweet.replace(' -',' ').replace(' –',' ').replace(' ‘','')
             tweet = tweet.replace('- ',' ').replace(' /',' ').replace('— ',' ')
-            tweet = tweet.replace('&amp','and').replace('&at','').replace('&gt','')
-            tweet = tweet.replace(': ',' ').replace(':)','')
-            poem = 'A Bigram Poem inspired by ' + data['user']['name'] 
-            poem += ':' + '\n' + bigram_poem(tweet)                       # use bigram_poem function and title line
+            tweet = tweet.replace(': ',' ').replace(':)','').replace('&amp','and')
+            poem = 'A Bigram Poem inspired by ' + data['user']['screen_name']  # title line
+            poem += ':' + '\n' + bigram_poem(tweet)                       # use bigram_poem function
+            poem += '   -' + data['user']['name']                         # signature line
             twitter.update_status(status=poem)                            # tweet out on @BigramPoetry account
             print(poem)                                                   # print result, timestamp (for testing)
             print(datetime.datetime.now(), '\n')
@@ -56,5 +56,5 @@ stream = MyStreamer(creds['CONSUMER_KEY'], creds['CONSUMER_SECRET'],      # cred
                     creds['ACCESS_TOKEN'], creds['ACCESS_SECRET'])
 
 while True:                                                               # continuosly runs the function
-    status_stream = stream.statuses.filter(track='machine learning')      # start the stream to search for tweet
+    status_stream = stream.statuses.filter(track='#machinelearning')      # start the stream to search for tweet
     time.sleep(600)                                                       # waits 10 minutes (600 seconds) before starting over
