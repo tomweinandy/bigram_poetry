@@ -6,7 +6,7 @@ from twython import TwythonStreamer
 from twython import Twython  
 
 def bigram_poem(phrase):                                                  # define new function bigram_poem   
-    rejects = '¿.?!,[]|"“();…{}«•*+$@'                                    # define punctuation to be removed
+    rejects = '¿.?!,[]|"“();…{}«•*+$@~'                                   # define punctuation to be removed
     phrase_reject = phrase.translate({ord(c): None for c in rejects})     # remove defined punctuation
     phrase_split = phrase_reject.split(' ')                               # split phrase by whitespace
     phrase_clear = list(filter(None, phrase_split))                       # strip any extra whitespace
@@ -56,5 +56,8 @@ stream = MyStreamer(creds['CONSUMER_KEY'], creds['CONSUMER_SECRET'],      # cred
                     creds['ACCESS_TOKEN'], creds['ACCESS_SECRET'])
 
 while True:                                                               # continuosly runs the function
-    status_stream = stream.statuses.filter(track='#machinelearning')      # start the stream to search for tweet
+    try:
+        status_stream = stream.statuses.filter(track='#machinelearning')      # start the stream to search for tweet
+    except:
+        print("Unexpected error:", sys.exc_info()[0])
     time.sleep(600)                                                       # waits 10 minutes (600 seconds) before starting over
