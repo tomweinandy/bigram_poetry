@@ -1,2 +1,2 @@
-web: python server.py
-worker: python bot.py
+web: python ./bigram/server.py
+worker: python ./bigram/bot.py
