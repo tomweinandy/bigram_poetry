@@ -1,0 +1,6 @@
+certifi==2017.7.27.1
+chardet==3.0.4
+DateTime==4.3
+nltk==3.4.4
+oauthlib==3.0.2
+twython==3.7.0
