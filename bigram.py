@@ -25,6 +25,11 @@ def bigram_poem(phrase):                                              # define n
         tw += ' ' + b[0] + ' ' + b[1] + ' \n'                         # add looped bigrams to string w line break
     return(tw)
 
+### For testing function ###
+AD = ['I hear the jury’s still out on science.', 'I’m a monster!', 'Baby you got a stew going.', 'Do these effectively hide my thunder?', 'Army had a half day.', 'Say goodbye to these!', 'This party’s going to be Off. The. Hook.', 'There are dozens of us. Dozens!', 'And that’s why you always leave a note.', 'I’m afraid I just blue myself.', 'There is always money in the banana stand.', 'I’ve made a huge mistake.', 'Dead dove. Do not eat.', 'Here’s some money. Go see a Star War.', 'It’s hot ham water!', 'But where does the lighter fluid come from?', 'Get rid of the Seaward.', 'You’re just a chicken.', 'It’s an illusion Michael!', 'For British eyes only', 'Family love Michael.', 'Watch out for hop-ons.', 'They don’t allow you to have bees here.', 'Has anyone in this family seen a chicken?', 'Solid as a rock!', 'Did nothing cancel?', 'I know you’re the big marriage expert.', 'She calls it a mayonegg.', 'It’s vodka. It goes bad once it’s opened.', 'Don’t call it that.', 'On the Next Arrested Development...', 'Luz, that coat costs more than your house!', 'I just want my kids back.', 'I have Pop Pop in the attic.', 'The soup of the day is Bread.', 'My heart is straining through my shirt', 'Maybe, I’ll put it in her brownie.', 'I like hot sailors.', 'I understand more than you’ll never know.', 'Who’d like a banger in the mouth?', 'And that’s why you don’t yell.', 'I don’t care for GOB.', 'No touching! No touching!', 'Glasses off, hair up.', 'And I think I maced a crane.', 'You’re my third least favorite child.', 'Something that says leather daddy?', 'I enjoy scholarly pursuits.', 'You’re a crook, Captain Hook...', 'And this is not a Volvo.', 'Rita corny, Michael.', 'We’re having a fire sale.', 'Tea for dong!', 'They said it was a bob.']
+print(bigram_poem(random.choice(AD)))               # Convert random quote to bigram poem
+###                      ###
+
 with open("twitter_credentials.json", "r") as file:                   # load credentials from json file (not included for security reasons)
     creds = json.load(file)
 
